@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stories</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Optional: Link to CSS for styling -->
+</head>
+<body>
+    <h1>All Stories</h1>
+    
+    <div class="stories-container">
+        <% if (stories.length > 0) { %>
+            <ul>
+                <% stories.forEach(function(story) { %>
+                    <li>
+                        <h2><%= story.title %></h2>
+                        <p><%= story.body.substring(0, 150) %>...</p> <!-- Display only a snippet of the story -->
+                        
+                        <!-- Link to view the full story -->
+                        <a href="/stories/<%= story._id %>">Read more</a>
+
+                        <!-- Link to add or update a picture for the story -->
+                        <a href="/stories/<%= story._id %>/add-picture">Add/Update Picture</a>
+                    </li>
+                    <hr>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <p>No stories available at the moment. Please check back later.</p>
+        <% } %>
+    </div>
+
+    <!-- Optionally, you can also add a link to add a new story -->
+    <div class="add-new-story">
+        <a href="/story/add">Add New Story</a>
+    </div>
+
+</body>
+</html>
