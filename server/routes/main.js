@@ -15,7 +15,7 @@ router.get('', async (req, res) => {
       description: "Simple Blog created with NodeJs, Express & MongoDb."
     }
 
-    let perPage = 10;
+    let perPage = ;
     let page = req.query.page || 1;
 
     const data = await Post.aggregate([ { $sort: { createdAt: -1 } } ])
@@ -139,7 +139,7 @@ router.get('/contact', (req, res) => {
 
 /**
  * GET /
- * Admin Logout
+ * Admin back
 */
 router.get('/back', (req, res) => {
   res.clearCookie('token');

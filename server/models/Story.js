@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { link } = require('../routes/main');
 const Schema = mongoose.Schema;
 
 const StorySchema = new Schema({

@@ -160,7 +160,7 @@ router.get('/edit-post/:id', authMiddleware, async (req, res) => {
 
     const locals = {
       title: "Edit Post",
-      description: "Free Lifestyle User Management System",
+      description: "Free NodeJs User Management System",
     };
 
     const data = await Post.findOne({ _id: req.params.id });
