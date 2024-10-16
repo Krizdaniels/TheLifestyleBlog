@@ -15,7 +15,7 @@ router.get('', async (req, res) => {
       description: "Simple Blog created with NodeJs, Express & MongoDb."
     }
 
-    let perPage = ;
+    let perPage = 9;
     let page = req.query.page || 1;
 
     const data = await Post.aggregate([ { $sort: { createdAt: -1 } } ])
