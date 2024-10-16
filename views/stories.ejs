@@ -15,14 +15,14 @@
                 <% stories.forEach(function(story) { %>
                     <li>
                         <h2><%= story.title %></h2>
-                        <p><%= story.body.substring(0, 150) %>...</p> <!-- Display only a snippet of the story -->
+                        <p><%= story.body ? story.body.substring(0, 150) : 'No content available.' %>...</p> <!-- Display only a snippet of the story -->
                         
                         <!-- Link to view the full story -->
                         <a href="/stories/<%= story._id %>">Read more</a>
 
                         <!-- Link to add or update a picture for the story -->
                         <a href="/stories/<%= story._id %>/add-picture">Add/Update Picture</a>
-                    </li>
+                    </li> 
                     <hr>
                 <% }) %>
             </ul>
@@ -33,7 +33,7 @@
 
     <!-- Optionally, you can also add a link to add a new story -->
     <div class="add-new-story">
-        <a href="/story/add">Add New Story</a>
+        <a href="/admin">Add New Story</a>
     </div>
 
 </body>

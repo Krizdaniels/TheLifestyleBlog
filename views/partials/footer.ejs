@@ -1,4 +1,10 @@
 <footer class="footer">
-    &copy; <%= new Date().getFullYear(); %> TheLifeStyleBlog • Built with MongoDB and NodeJs
+
+    <li>
+        <a href="/back" class="<%= isActiveRoute('/back', currentRoute) %>">← Back</a>
+      </li>
+    </ul>
+
+    &copy; <%= new Date().getFullYear(); %> Copywright •  TheLifeStyleBlog
 
 </footer>  

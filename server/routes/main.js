@@ -137,6 +137,16 @@ router.get('/contact', (req, res) => {
   });
 });
 
+/**
+ * GET /
+ * Admin Logout
+*/
+router.get('/back', (req, res) => {
+  res.clearCookie('token');
+  //res.json({ message: 'back to home page.'});
+  res.redirect('/');
+});
+
 router.get('/stories', async (req, res) => {
   try {
     const stories = await Story.find();  // Fetch stories from the database
@@ -150,6 +160,24 @@ router.get('/stories', async (req, res) => {
   }
 });
 
+// Route to display all stories
+router.get('/stories', async (req, res) => {
+  try {
+    const locals = {
+      title: "All Stories",
+      description: "Browse through all the amazing stories on our blog."
+    };
+
+    // Fetch all stories
+    const stories = await Story.find().sort({ createdAt: -1 });
+
+    // Render the 'stories.ejs' view and pass the stories
+    res.render('stories', { locals, stories, currentRoute: '/stories' });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Server error");
+  }
+});
 
 
 
